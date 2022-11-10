@@ -19,7 +19,7 @@ function getTotal() {
 }
 // create product
 if (localStorage.product != null) {
-  dataPro = JSON.parse(localStorage.product);
+  let dataPro = JSON.parse(localStorage.product);
 } else {
   let dataPro = [];
 }
