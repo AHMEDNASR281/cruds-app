@@ -3,8 +3,8 @@
   padding: 0px;
 }
 body {
-  background: #222;
-  color: #fff;
+  background: #10454f;
+  color: #bde038;
   font-family: system-ui;
 }
 
@@ -26,21 +26,23 @@ input {
   border: none;
   background: #111;
   margin: 4px 0;
-  color: #fff;
+  color: #bde038;
   border-radius: 4px;
   padding: 5px;
 }
 
 input:focus {
-  background: #000;
+  background: #506266;
   transform: scale(1.06);
+  transition: 0.5s;
+  transition-timing-function: ease;
 }
 
 .price input {
   width: 19%;
 }
 #total {
-  background: #a00d02;
+  background: #818274;
   padding: 6px 2px;
   border-radius: 4px;
 }
@@ -53,16 +55,18 @@ button {
   width: 100%;
   height: 30px;
   border: none;
-  background: #559;
-  color: #ffff;
+  background: #a3ab78;
+  color: #000;
   border-radius: 20px;
   transition: 0.5s;
   transition-timing-function: ease;
+  pointer: cursor;
 }
 
 button:hover {
-  background: #51025f;
+  background: #A3AB78;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
 .btn-search {

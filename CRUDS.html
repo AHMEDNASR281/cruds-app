@@ -16,11 +16,31 @@
       <div class="inputs">
         <input type="text" id="title" placeholder="title" />
         <div class="price">
-          <input type="number" id="price" placeholder="price" />
-          <input type="number" id="taxes" placeholder="taxes" />
-          <input type="number" id="ads" placeholder="ads" />
-          <input type="number" id="discount" placeholder="discount" />
-          <small id="total">3333</small>
+          <input
+            onkeyup="getTotal()"
+            type="number"
+            id="price"
+            placeholder="price"
+          />
+          <input
+            onkeyup="getTotal()"
+            type="number"
+            id="taxes"
+            placeholder="taxes"
+          />
+          <input
+            onkeyup="getTotal()"
+            type="number"
+            id="ads"
+            placeholder="ads"
+          />
+          <input
+            onkeyup="getTotal()"
+            type="number"
+            id="discount"
+            placeholder="discount"
+          />
+          <small onkeyup="getTotal() " id="total"></small>
         </div>
         <input type="number" id="count" placeholder="count" />
         <input type="text" id="category" placeholder="category" />
@@ -49,23 +69,12 @@
             <th>delete</th>
           </tr>
 
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>samsung</td>
-              <td>2000</td>
-              <td>100</td>
-              <td>100</td>
-              <td>100</td>
-              <td>2100</td>
-              <td>phone</td>
-              <td><button id="update">update</button></td>
-              <td><button id="delete">delete</button></td>
-            </tr>
+          <tbody id="tbody">
+          
           </tbody>
         </table>
       </div>
     </div>
-    <script src="main.js"></script>
+    <script src="Cruds.js"></script>
   </body>
 </html>
