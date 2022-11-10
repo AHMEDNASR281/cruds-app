@@ -81,7 +81,9 @@ showData();
 // delete
 
 function deleteData(i) {
-  console.log(i)
+  dataPro.splice(i, 1);
+  localStorage.product = JSON.stringify(dataPro);
+  showData();
 }
 // update
 // search
