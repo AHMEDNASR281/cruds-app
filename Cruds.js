@@ -19,9 +19,9 @@ function getTotal() {
 }
 // create product
 if (localStorage.product != null) {
-  let dataPro = JSON.parse(localStorage.product);
+  data = JSON.parse(localStorage.product);
 } else {
-  let dataPro = [];
+  let data = [];
 }
 
 submit.onclick = function () {
@@ -35,9 +35,15 @@ submit.onclick = function () {
     count: count.value,
     category: category.value,
   };
-  dataPro.push(newPro);
-  localStorage.setItem("product", JSON.stringify(dataPro));
-  console.log(dataPro);
+  if (newPro.count > 1) {
+    for (let i = 0; (i = newPro.count); i++) {
+      data.push(newPro);
+    }
+  } else {
+    data.push(newPro);
+  }
+
+  localStorage.setItem("product", JSON.stringify(data));
 
   clearData();
   showData();
@@ -58,31 +64,45 @@ function clearData() {
 
 function showData() {
   let table = "";
-  for (let i = 0; i < dataPro.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     table += `
       <tr>
               <td>${i}</td>
-              <td>${dataPro[i].title}</td>
-              <td>${dataPro[i].price}</td>
-              <td>${dataPro[i].taxes}</td>
-              <td>${dataPro[i].ads}</td>
-              <td>${dataPro[i].discount}</td>
-              <td>${dataPro[i].total}</td>
-              <td>${dataPro[i].category}</td>
+              <td>${data[i].title}</td>
+              <td>${data[i].price}</td>
+              <td>${data[i].taxes}</td>
+              <td>${data[i].ads}</td>
+              <td>${data[i].discount}</td>
+              <td>${data[i].total}</td>
+              <td>${data[i].category}</td>
               <td><button id="update">update</button></td>
               <td><button onclick='deleteData(${i})' id="delete">delete</button></td>
             </tr>
     `;
   }
   document.getElementById("tbody").innerHTML = table;
+  let btnDelete = document.getElementById("deleteAll");
+  if (data.length > 0) {
+    btnDelete.innerHTML = `
+     <button onclick='deleteAll()'>Delete All</button>
+    `;
+  } else {
+    btnDelete.innerHTML = "";
+  }
 }
 showData();
 // count
 // delete
 
 function deleteData(i) {
-  dataPro.splice(i, 1);
-  localStorage.product = JSON.stringify(dataPro);
+  data.splice(i, 1);
+  localStorage.product = JSON.stringify(data);
+  showData();
+}
+
+function deleteAll() {
+  localStorage.clear();
+  data.splice(0);
   showData();
 }
 // update
